@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Forecaster</title>
+    <script type="text/javascript" src="myscript.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Weather Forecast</h1>
+
+
+    <form name="myForm" action="" method="GET">Please enter a location to check weather: <BR>
+        <input type="text" name="location"> <br><br> Please choose the units: <br />
+        <input type="radio" name= "units" value="metric" checked="checked" />Metric
+        <input type="radio" name= "units" value="imperial" />Imperial
+        </p>
+        <p>Please select the amount of days:
+            <br />
+            <select name="days">
+                <option value="1">1 day</option>
+                <option value="2">2 day</option>
+                <option value="3">3 day</option>
+                <option value="4">4 day</option>
+                <option value="5">5 day</option>
+            </select>
+        </p>
+       <p>Please submit!:</p>
+       <input TYPE="button" NAME="button" Value="Click" onClick="testResults(this.form)">
+    </form>
+
+    <h3 id="Mapintro"></h3>
+    <div id="googleMap" style="width:500px;height:380px;"></div>
+    <h3 id="ready to party"></h3>
+    <h3 id="summary"></h3>
+    <h3 id="jstest"></h3>
+    <h3 id="demo"></h3>
+
+    <div id="checkboxes"></div>
+    <div id="table1" style="display:none"></div>
+    <div id="table2" style="display:none"></div>
+    <div id="table3" style="display:none"></div>
+
+
+
+    <script src="http://maps.googleapis.com/maps/api/js"></script>
+    <script src="myscript.js"></script>
+</body>
+</html>

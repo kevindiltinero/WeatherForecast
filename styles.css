@@ -1,0 +1,14 @@
+table, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+p, li {
+    color: black;
+    font-size: 12pt;
+}
+
+h2 {
+    color: blue;
+}
+
