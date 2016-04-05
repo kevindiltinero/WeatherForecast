@@ -152,28 +152,117 @@ function furtherInfo () {
         //This is the summary list
         var i;
         var best = "<br />";
+        var counter = 0;
+        var data1 = '';
+        var data2 = '';
+        var data3 = '';
+        var data4 = '';
+        var data5 = '';
+
+        var numberChoice = 3;
+
+        //Get the number for the day
 
         for(i = 0; i < data.list.length; i++) {
-            if (data.list[i].dt_txt.indexOf('2016-04-05 ') >= 0) {
-                best += "<a onclick='furtherInfo()'>" + "Forecast " + (i + 1) + ": " + "</a>" +
-                    data.list[i].dt_txt;
-                best += "<h4 id='finegrained'></h4>"
-                best += '<img src="http://openweathermap.org/img/w/' + data.list[i].weather[0].icon + '.png">';
-                best += "<p>" + "Generally we can expect tempritures to reach " + data.list[4].main.temp +
+
+            if (data.list[i].dt_txt.slice(-8) == '00:00:00'){
+                counter += 1;
+            }
+
+            if (counter == 0){
+                data1 += "<a>" + "Forecast " + (i + 1) + ": " + "</a>" + data.list[i].dt_txt;
+                data1 += "<h4 id='finegrained'></h4>"
+                data1 += '<img src="http://openweathermap.org/img/w/' + data.list[i].weather[0].icon + '.png">';
+                data1 += "<p>" + "Generally we can expect tempritures to reach " + data.list[4].main.temp +
                     " on this day." + " The wind direction predicted is " + data.list[i].wind.deg +
                     "<br />" + "In terms of cloudiness it will be " + data.list[i].clouds.all + "%." +
                     " On this day we can expect to see: " + data.list[i].weather[0].main + ", " +
                     data.list[i].weather[0].description + "</p>";
-                best += "<ul>";
-                best += "<li>" + "The minimum temperature is day is: " + data.list[i].main.temp_min + "</li>";
-                best += "<li>" + "The maximum temperature for this day is: " + data.list[i].main.temp_max + "</li>";
-                best += "<li>" + "The predicted rainfall for this day is: " + data.list[i].main.temp + "</li>";
-                best += "</ul>";
+                data1 += "<ul>";
+                data1 += "<li>" + "The minimum temperature is day is: " + data.list[i].main.temp_min + "</li>";
+                data1 += "<li>" + "The maximum temperature for this day is: " + data.list[i].main.temp_max + "</li>";
+                data1 += "<li>" + "The predicted rainfall for this day is: " + data.list[i].main.temp + "</li>";
+                data1 += "</ul>";
+
+            } else if (counter == 1){
+                data2 += "<a>" + "Forecast " + (i + 1) + ": " + "</a>" + data.list[i].dt_txt;
+                data2 += "<h4 id='finegrained'></h4>"
+                data2 += '<img src="http://openweathermap.org/img/w/' + data.list[i].weather[0].icon + '.png">';
+                data2 += "<p>" + "Generally we can expect tempritures to reach " + data.list[4].main.temp +
+                    " on this day." + " The wind direction predicted is " + data.list[i].wind.deg +
+                    "<br />" + "In terms of cloudiness it will be " + data.list[i].clouds.all + "%." +
+                    " On this day we can expect to see: " + data.list[i].weather[0].main + ", " +
+                    data.list[i].weather[0].description + "</p>";
+                data2 += "<ul>";
+                data2 += "<li>" + "The minimum temperature is day is: " + data.list[i].main.temp_min + "</li>";
+                data2 += "<li>" + "The maximum temperature for this day is: " + data.list[i].main.temp_max + "</li>";
+                data2 += "<li>" + "The predicted rainfall for this day is: " + data.list[i].main.temp + "</li>";
+                data2 += "</ul>";
+
+            } else if (counter == 2){
+                data3 += "<a>" + "Forecast " + (i + 1) + ": " + "</a>" + data.list[i].dt_txt;
+                data3 += "<h4 id='finegrained'></h4>"
+                data3 += '<img src="http://openweathermap.org/img/w/' + data.list[i].weather[0].icon + '.png">';
+                data3 += "<p>" + "Generally we can expect tempritures to reach " + data.list[4].main.temp +
+                    " on this day." + " The wind direction predicted is " + data.list[i].wind.deg +
+                    "<br />" + "In terms of cloudiness it will be " + data.list[i].clouds.all + "%." +
+                    " On this day we can expect to see: " + data.list[i].weather[0].main + ", " +
+                    data.list[i].weather[0].description + "</p>";
+                data3 += "<ul>";
+                data3 += "<li>" + "The minimum temperature is day is: " + data.list[i].main.temp_min + "</li>";
+                data3 += "<li>" + "The maximum temperature for this day is: " + data.list[i].main.temp_max + "</li>";
+                data3 += "<li>" + "The predicted rainfall for this day is: " + data.list[i].main.temp + "</li>";
+                data3 += "</ul>";
+
+            } else if (counter == 3){
+                data4 += "<a>" + "Forecast " + (i + 1) + ": " + "</a>" + data.list[i].dt_txt;
+                data4 += "<h4 id='finegrained'></h4>"
+                data4 += '<img src="http://openweathermap.org/img/w/' + data.list[i].weather[0].icon + '.png">';
+                data4 += "<p>" + "Generally we can expect tempritures to reach " + data.list[4].main.temp +
+                    " on this day." + " The wind direction predicted is " + data.list[i].wind.deg +
+                    "<br />" + "In terms of cloudiness it will be " + data.list[i].clouds.all + "%." +
+                    " On this day we can expect to see: " + data.list[i].weather[0].main + ", " +
+                    data.list[i].weather[0].description + "</p>";
+                data4 += "<ul>";
+                data4 += "<li>" + "The minimum temperature is day is: " + data.list[i].main.temp_min + "</li>";
+                data4 += "<li>" + "The maximum temperature for this day is: " + data.list[i].main.temp_max + "</li>";
+                data4 += "<li>" + "The predicted rainfall for this day is: " + data.list[i].main.temp + "</li>";
+                data4 += "</ul>";
+            } else if (counter == 4){
+                data5 += "<a>" + "Forecast " + (i + 1) + ": " + "</a>" + data.list[i].dt_txt;
+                data5 += "<h4 id='finegrained'></h4>"
+                data5 += '<img src="http://openweathermap.org/img/w/' + data.list[i].weather[0].icon + '.png">';
+                data5 += "<p>" + "Generally we can expect tempritures to reach " + data.list[4].main.temp +
+                    " on this day." + " The wind direction predicted is " + data.list[i].wind.deg +
+                    "<br />" + "In terms of cloudiness it will be " + data.list[i].clouds.all + "%." +
+                    " On this day we can expect to see: " + data.list[i].weather[0].main + ", " +
+                    data.list[i].weather[0].description + "</p>";
+                data5 += "<ul>";
+                data5 += "<li>" + "The minimum temperature is day is: " + data.list[i].main.temp_min + "</li>";
+                data5 += "<li>" + "The maximum temperature for this day is: " + data.list[i].main.temp_max + "</li>";
+                data5 += "<li>" + "The predicted rainfall for this day is: " + data.list[i].main.temp + "</li>";
+                data5 += "</ul>";
+            } else{
+                var dimitri = 0;
+            }
+
+
 
             }
-        }
 
-        document.getElementById("finegrained").innerHTML = best;
+            if (numberChoice == 1){
+                document.getElementById("finegrained").innerHTML = data1;
+            } else if (numberChoice == 2){
+                document.getElementById("finegrained").innerHTML = data2;
+            } else if (numberChoice == 3) {
+                document.getElementById("finegrained").innerHTML = data3;
+            } else if (numberCHoice == 4){
+                document.getElementById("finegrained").innerHTML = data4;
+            } else if (numberCHoice == 4){
+                document.getElementById("finegrained").innerHTML = data5;
+            }
+
+
     }
 
 
