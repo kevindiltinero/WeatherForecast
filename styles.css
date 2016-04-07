@@ -12,3 +12,9 @@ h2 {
     color: blue;
 }
 
+
+.box{
+    padding: 20px;
+    display: none;
+    margin-top: 20px;
+}

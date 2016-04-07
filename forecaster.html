@@ -11,6 +11,7 @@
 
 
     <form name="myForm" action="" method="GET">Please enter a location to check weather: <BR>
+        <h3 id="codetest"></h3>
         <input type="text" name="location"> <br><br> Please choose the units: <br />
         <input type="radio" name= "units" value="metric" checked="checked" />Metric
         <input type="radio" name= "units" value="imperial" />Imperial
@@ -26,7 +27,7 @@
             </select>
         </p>
        <p>Please submit!:</p>
-       <input TYPE="button" NAME="button" Value="Click" onClick="testResults(this.form)">
+       <input TYPE="button" NAME="button" Value="Submit" onClick="testResults(this.form)">
     </form>
 
     <h3 id="Mapintro"></h3>
@@ -41,8 +42,17 @@
     <div id="table2" style="display:none"></div>
     <div id="table3" style="display:none"></div>
 
+    <div>
+        <label><input type="checkbox" name="colorCheckbox" value="red"> Pressure </label>
+        <label><input type="checkbox" name="colorCheckbox" value="green"> Humidity </label>
+        <label><input type="checkbox" name="colorCheckbox" value="blue"> Wind Speed </label>
+    </div>
+    <div id="tabletest" class="red box"></div>
+    <div id="tabletest2" class="green box"></div>
+    <div id="tabletest3" class="blue box"></div>
 
 
+    <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
     <script src="http://maps.googleapis.com/maps/api/js"></script>
     <script src="myscript.js"></script>
 </body>
