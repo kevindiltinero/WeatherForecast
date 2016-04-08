@@ -14,6 +14,7 @@ $(document).ready(function(){
 
 
 function testResults (form) {
+
     //WEATHER STUFF
     //Instance of js object to deal with json requests and url
     var xmlhttp = new XMLHttpRequest();
@@ -73,24 +74,62 @@ function testResults (form) {
 
             var data = JSON.parse(response);
 
+            //OPEN MAP STUFF
+            var lat = otherdata.results[0].geometry.location.lat;
+            var lon = otherdata.results[0].geometry.location.lng;
+            var lonlat = new OpenLayers.LonLat(lon, lat);
+            var map = new OpenLayers.Map("openMap");
+            // Create overlays
+            var mapnik = new OpenLayers.Layer.OSM();
+            var layer_cloud = new OpenLayers.Layer.XYZ(
+                "clouds",
+                "http://${s}.tile.openweathermap.org/map/clouds/${z}/${x}/${y}.png", {
+                    isBaseLayer: false,
+                    opacity: 0.7,
+                    sphericalMercator: true
+                }
+            );
+
+            //This is the percipitation layer
+            var layer_precipitation = new OpenLayers.Layer.XYZ(
+                "precipitation",
+                "http://${s}.tile.openweathermap.org/map/precipitation/${z}/${x}/${y}.png", {
+                    isBaseLayer: false,
+                    opacity: 0.7,
+                    sphericalMercator: true
+                }
+            );
+
+            map.addLayers([mapnik, layer_precipitation, layer_cloud]);
+            map.setCenter( lonlat, 3);
+
+              var _gaq = _gaq || [];
+              _gaq.push(['_setAccount', 'UA-31601618-1']);
+              _gaq.push(['_setDomainName', 'openweathermap.org']);
+              _gaq.push(['_trackPageview']);
+              (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+              })();
+
+
             // GOOGLE MAP STUFF
             var myCenter = new google.maps.LatLng(otherdata.results[0].geometry.location.lat, otherdata.results[0].geometry.location.lng);
-
             var mapProp = {
                 center: myCenter,
                 zoom: 5,
                 mapTypeId: google.maps.MapTypeId.ROADMAP
             };
-
             var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
-
             var marker = new google.maps.Marker({
                 position: myCenter,
             });
-
             marker.setMap(map);
 
-            document.getElementById("Mapintro").innerHTML = "THis is where you picked";
+            document.getElementById("Mapintro").innerHTML = "This is where you picked";
+            document.getElementById("opensummary").innerHTML = "Here is some percipitation data for where you picked";
+
 
             //This is the city table
             var out = "<table>";
@@ -100,7 +139,7 @@ function testResults (form) {
             out += "<tr><td>" + "Longitude" + "</td><td>" + data.city.coord.lon + "</td></tr>";
             out += "<tr><td>" + "Latitude" + "</td><td>" + data.city.coord.lat + "</td></tr>";
             out += "</table>";
-            document.getElementById("ready to party").innerHTML = out;
+            document.getElementById("citysummary").innerHTML = out;
 
 
             //This is the summary list
@@ -148,7 +187,6 @@ function testResults (form) {
             other3 += "</table>";
 
             //document.getElementById("ready to party").innerHTML = "Here is the city information" + "<br /><br />"  + out;
-            //document.getElementById("summary").innerHTML = best;
             document.getElementById("tabletest").innerHTML = other;
             document.getElementById("tabletest2").innerHTML = other2;
             document.getElementById("tabletest3").innerHTML = other3;
@@ -300,8 +338,8 @@ function furtherInfo (choice) {
 
     }
 
-
 }
+
 
 
 

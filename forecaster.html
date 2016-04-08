@@ -7,17 +7,24 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Weather Forecast</h1>
 
+    <div class="titlestrip">
+    <img class="photoshop" src="Titleback.png" alt="Title design">
+    </div>
 
-    <form name="myForm" action="" method="GET">Please enter a location to check weather: <BR>
+    <div class="contains">
+    <div class="form">
+    <form name="myForm" action="" method="GET">
+        <label>Enter a location: </label>
         <h3 id="codetest"></h3>
-        <input type="text" name="location"> <br><br> Please choose the units: <br />
-        <input type="radio" name= "units" value="metric" checked="checked" />Metric
-        <input type="radio" name= "units" value="imperial" />Imperial
-        </p>
-        <p>Please select the amount of days:
-            <br />
+        <input type="text" name="location"> <br><br>
+        <label>Choose the units you would like to see: <br /> </label>
+        <input type="radio" name= "units" value="metric" checked="checked" />
+        <label>Metric</label>
+        <input type="radio" name= "units" value="imperial" />
+        <label>Imperial</label>
+        <br /><br />
+        <label>Please select the amount of days: <br /></label>
             <select name="days">
                 <option value="1">1 day</option>
                 <option value="2">2 day</option>
@@ -25,35 +32,37 @@
                 <option value="4">4 day</option>
                 <option value="5">5 day</option>
             </select>
-        </p>
-       <p>Please submit!:</p>
+       <label><br /><br />Please submit: <br /></label>
        <input TYPE="button" NAME="button" Value="Submit" onClick="testResults(this.form)">
     </form>
+    </div>
 
-    <h3 id="Mapintro"></h3>
-    <div id="googleMap" style="width:500px;height:380px;"></div>
-    <h3 id="ready to party"></h3>
-    <h3 id="summary"></h3>
-    <h3 id="jstest"></h3>
-    <h3 id="demo"></h3>
+    <div class="space"></div>
 
-    <div id="checkboxes"></div>
-    <div id="table1" style="display:none"></div>
-    <div id="table2" style="display:none"></div>
-    <div id="table3" style="display:none"></div>
 
-    <div>
+    <div class="query">
+    <div class="extrachecks">
         <label><input type="checkbox" name="colorCheckbox" value="red"> Pressure </label>
         <label><input type="checkbox" name="colorCheckbox" value="green"> Humidity </label>
         <label><input type="checkbox" name="colorCheckbox" value="blue"> Wind Speed </label>
     </div>
+    <h3 id="summary"></h3>
     <div id="tabletest" class="red box"></div>
     <div id="tabletest2" class="green box"></div>
     <div id="tabletest3" class="blue box"></div>
-
+        <h3 id="Mapintro"></h3>
+        <h3 id="citysummary"></h3>
+    <div id="googleMap" style="width:500px;height:380px;"></div>
+        <h3 id="opensummary"></h3>
+    <div id="openMap" style="width:500px;height:380px;"></div>
+    </div>
+    </div>
 
     <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
     <script src="http://maps.googleapis.com/maps/api/js"></script>
     <script src="myscript.js"></script>
-</body>
+    <script src="http://openlayers.org/api/OpenLayers.js"></script>
+
+    </body>
+
 </html>
