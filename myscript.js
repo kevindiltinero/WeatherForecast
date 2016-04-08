@@ -81,14 +81,6 @@ function testResults (form) {
             var map = new OpenLayers.Map("openMap");
             // Create overlays
             var mapnik = new OpenLayers.Layer.OSM();
-            var layer_cloud = new OpenLayers.Layer.XYZ(
-                "clouds",
-                "http://${s}.tile.openweathermap.org/map/clouds/${z}/${x}/${y}.png", {
-                    isBaseLayer: false,
-                    opacity: 0.7,
-                    sphericalMercator: true
-                }
-            );
 
             //This is the percipitation layer
             var layer_precipitation = new OpenLayers.Layer.XYZ(
@@ -100,7 +92,7 @@ function testResults (form) {
                 }
             );
 
-            map.addLayers([mapnik, layer_precipitation, layer_cloud]);
+            map.addLayers([mapnik, layer_precipitation]);
             map.setCenter( lonlat, 3);
 
               var _gaq = _gaq || [];
@@ -128,8 +120,8 @@ function testResults (form) {
             marker.setMap(map);
 
             document.getElementById("Mapintro").innerHTML = "This is where you picked";
-            document.getElementById("opensummary").innerHTML = "Here is some percipitation data for where you picked";
-
+            document.getElementById("opensummary").innerHTML = "Here is some percipitation data.";
+            document.getElementById("Mapdesc").innerHTML = "Here is a map.";
 
             //This is the city table
             var out = "<table>";
@@ -146,12 +138,13 @@ function testResults (form) {
             var i;
             var best = "<br />";
             for (i = 0; i < data.list.length; i++) {
+                best += "<br />";
                 best += "<a onclick='furtherInfo(" + (i + 1) + ")'>" + "Day " + (i + 1) + ": " + "</a>";
                 best += "<h4 id= class" + (i + 1) + "></h4>"
                 best += '<img src="http://openweathermap.org/img/w/' + data.list[i].weather[0].icon + '.png">';
-                best += "<p>" + "Generally we can expect tempritures to reach " + data.list[i].temp.day +
+                best += "<p class='parag'>" + "Generally we can expect tempritures to reach " + data.list[i].temp.day +
                     " during the day." + " and " + data.list[i].temp.night + " during the night. " +
-                    "<br />" + "In terms of cloudiness it will be " + data.list[i].clouds + "%." +
+                    "In terms of cloudiness it will be " + data.list[i].clouds + "%." +
                     " On this day we can expect to see: " + data.list[i].weather[0].main + ", " +
                     data.list[i].weather[0].description + "</p>";
                 best += "<ul>";
@@ -165,21 +158,21 @@ function testResults (form) {
 
             //For loop to add the table from the array
 
-            var other = "<table style='float:left'>";
+            var other = "<table style='display:inline-block'>";
             other += "<tr><td>" + "PRESSURE" + "</td></tr>";
             for (i = 0; i < data.list.length; i++) {
                 other += "<tr><td>" + data.list[i].pressure + "</td></tr>";
             }
             other += "</table>";
 
-            var other2 = "<table style='float:left'>";
+            var other2 = "<table style='display:inline-block'>";
             other2 += "<tr><td>" + "HUMIDITY" + "</td></tr>";
             for (i = 0; i < data.list.length; i++) {
                 other2 += "<tr><td>" + data.list[i].humidity + "</td></tr>";
             }
             other2 += "</table>";
 
-            var other3 = "<table style='float:left'>";
+            var other3 = "<table style='display:inline-block'>";
             other3 += "<tr><td>" + "WIND SPEED" + "</td></tr>";
             for (i = 0; i < data.list.length; i++) {
                 other3 += "<tr><td>" + data.list[i].speed + "</td></tr>";
