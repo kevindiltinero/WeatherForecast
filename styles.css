@@ -76,7 +76,7 @@ h2 {
 }
 
 .extrachecks{
-    width: 70%;
+    width: 40%;
     margin: 0 auto;
     padding-top: 40px;
 }
@@ -129,11 +129,12 @@ ul, li{
 }
 
 table {
-margin: 0 auto; /* or margin: 0 auto 0 auto */
+    margin: 0 auto; /* or margin: 0 auto 0 auto */
 }
 
 a {
     font-size: 27pt;
     font-weight: 400;
     color: blue;
+    text-decoration: underline;
 }

@@ -95,17 +95,6 @@ function testResults (form) {
             map.addLayers([mapnik, layer_precipitation]);
             map.setCenter( lonlat, 3);
 
-              var _gaq = _gaq || [];
-              _gaq.push(['_setAccount', 'UA-31601618-1']);
-              _gaq.push(['_setDomainName', 'openweathermap.org']);
-              _gaq.push(['_trackPageview']);
-              (function() {
-                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-              })();
-
-
             // GOOGLE MAP STUFF
             var myCenter = new google.maps.LatLng(otherdata.results[0].geometry.location.lat, otherdata.results[0].geometry.location.lng);
             var mapProp = {
@@ -236,7 +225,7 @@ function furtherInfo (choice) {
             }
 
             if (counter == 0){
-                data1 += "<a>" + "Forecast " + (i + 1) + ": " + "</a>" + data.list[i].dt_txt;
+                data1 += "<a>" + "Forecast: " + "</a>" + data.list[i].dt_txt;
                 data1 += "<h4 id='finegrained'></h4>"
                 data1 += '<img src="http://openweathermap.org/img/w/' + data.list[i].weather[0].icon + '.png">';
                 data1 += "<p>" + "Generally we can expect tempritures to reach " + data.list[4].main.temp +
@@ -251,7 +240,7 @@ function furtherInfo (choice) {
                 data1 += "</ul>";
 
             } else if (counter == 1){
-                data2 += "<a>" + "Forecast " + (i + 1) + ": " + "</a>" + data.list[i].dt_txt;
+                data2 += "<a>" + "Forecast: " + "</a>" + data.list[i].dt_txt;
                 data2 += "<h4 id='finegrained'></h4>"
                 data2 += '<img src="http://openweathermap.org/img/w/' + data.list[i].weather[0].icon + '.png">';
                 data2 += "<p>" + "Generally we can expect tempritures to reach " + data.list[4].main.temp +
@@ -266,7 +255,7 @@ function furtherInfo (choice) {
                 data2 += "</ul>";
 
             } else if (counter == 2){
-                data3 += "<a>" + "Forecast " + (i + 1) + ": " + "</a>" + data.list[i].dt_txt;
+                data3 += "<a>" + "Forecast: " + "</a>" + data.list[i].dt_txt;
                 data3 += "<h4 id='finegrained'></h4>"
                 data3 += '<img src="http://openweathermap.org/img/w/' + data.list[i].weather[0].icon + '.png">';
                 data3 += "<p>" + "Generally we can expect tempritures to reach " + data.list[4].main.temp +
@@ -281,7 +270,7 @@ function furtherInfo (choice) {
                 data3 += "</ul>";
 
             } else if (counter == 3){
-                data4 += "<a>" + "Forecast " + (i + 1) + ": " + "</a>" + data.list[i].dt_txt;
+                data4 += "<a>" + "Forecast: " + "</a>" + data.list[i].dt_txt;
                 data4 += "<h4 id='finegrained'></h4>"
                 data4 += '<img src="http://openweathermap.org/img/w/' + data.list[i].weather[0].icon + '.png">';
                 data4 += "<p>" + "Generally we can expect tempritures to reach " + data.list[4].main.temp +
@@ -295,7 +284,7 @@ function furtherInfo (choice) {
                 data4 += "<li>" + "The predicted rainfall for this day is: " + data.list[i].main.temp + "</li>";
                 data4 += "</ul>";
             } else if (counter == 4){
-                data5 += "<a>" + "Forecast " + (i + 1) + ": " + "</a>" + data.list[i].dt_txt;
+                data5 += "<a>" + "Forecast: " + "</a>" + data.list[i].dt_txt;
                 data5 += "<h4 id='finegrained'></h4>"
                 data5 += '<img src="http://openweathermap.org/img/w/' + data.list[i].weather[0].icon + '.png">';
                 data5 += "<p>" + "Generally we can expect tempritures to reach " + data.list[4].main.temp +
